@@ -21,19 +21,19 @@
         "lodash": "4.18.1",
         "lodash-es": "4.18.1",
         "picomatch": "4.0.4",
-        "brace-expansion": "1.1.13",
-        "@xmldom/xmldom": "0.8.13",
+        "brace-expansion": "1.1.21",
+        "@xmldom/xmldom": "0.8.15",
         "yaml": "2.9.0",
         "serialize-javascript": "7.0.5",
-        "qs": "6.15.2",
+        "qs": "6.16.0",
         "uuid": "12.0.1",
-        "fast-uri": "3.1.2",
+        "fast-uri": "3.1.8",
         "ip-address": "10.1.1",
         "follow-redirects": "1.16.0",
         "@babel/plugin-transform-modules-systemjs": "7.29.4",
         "ejs": {
             "minimatch": {
-                "brace-expansion": "5.0.6"
+                "brace-expansion": "5.0.12"
             }
         },
         "express": {
@@ -117,7 +117,7 @@
         "jest-extended": "^4.0.2",
         "lint-staged": "^11.2.6",
         "node-abort-controller": "^3.1.1",
-        "postcss": "^8.5.10",
+        "postcss": "^8.5.28",
         "prettier": "^3.0.0",
         "stylelint": "^16.23.1",
         "stylelint-formatter-pretty": "^2.1.1",
