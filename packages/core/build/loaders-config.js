@@ -38,6 +38,17 @@ const svg_file_loaders = [
     },
 ];
 
+// Prefix SVG ids with the file's path under packages/ so inline SVGs on one page cannot collide,
+// even when two files share a name (e.g. settings/left.svg and settings/dark/left.svg, or the
+// same file in core and trader).
+const getSvgIdPrefix = (_node, info) => {
+    if (!info.path) return 'svg';
+    return path
+        .relative(path.resolve(__dirname, '../..'), info.path)
+        .replace(/\.svg$/, '')
+        .replace(/[^\w-]/g, '_');
+};
+
 const svg_loaders = [
     {
         loader: 'babel-loader',
@@ -59,11 +70,12 @@ const svg_loaders = [
                             overrides: {
                                 removeTitle: false,
                                 removeUselessStrokeAndFill: false,
+                                // Keep viewBox so the SVGs scale when CSS resizes them.
+                                removeViewBox: false,
                             },
                         },
                     },
-                    // Prefix ids with the file name so inline SVGs on one page cannot collide.
-                    'prefixIds',
+                    { name: 'prefixIds', params: { prefix: getSvgIdPrefix } },
                 ],
             },
         },
