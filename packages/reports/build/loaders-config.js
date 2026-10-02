@@ -47,16 +47,24 @@ const svg_loaders = [
         },
     },
     {
-        loader: 'react-svg-loader',
+        loader: '@svgr/webpack',
         options: {
-            jsx: true,
-            svgo: {
-                plugins: [
-                    { removeTitle: false },
-                    { removeUselessStrokeAndFill: false },
-                    { removeUknownsAndDefaults: false },
-                ],
+            babel: false,
+            svgoConfig: {
                 floatPrecision: 2,
+                plugins: [
+                    {
+                        name: 'preset-default',
+                        params: {
+                            overrides: {
+                                removeTitle: false,
+                                removeUselessStrokeAndFill: false,
+                            },
+                        },
+                    },
+                    // Prefix ids with the file name so inline SVGs on one page cannot collide.
+                    'prefixIds',
+                ],
             },
         },
     },
